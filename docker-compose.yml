@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  flask-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: california-flask-api
+    ports:
+      - "5000:5000"
+
+  streamlit-ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    container_name: california-streamlit-ui
+    environment:
+      API_BASE_URL: http://flask-api:5000/predict
+    ports:
+      - "8501:8501"
+    depends_on:
+      - flask-api
