@@ -5,7 +5,7 @@ import requests
 
 st.set_page_config(page_title="California Housing Predictor", page_icon="🏠", layout="centered")
 
-st.title("🏠 California Housing Price Predictor")
+st.title("🏠 California Housing Price Predictor for you !!")
 st.markdown("Enter the housing features below to get a regression prediction from the Flask API.")
 
 API_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:5000/predict")
